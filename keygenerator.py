@@ -24,7 +24,7 @@ def CreateClientCrt(days, cn):
     cmd3 = 'openssl x509 -req -days {days} -in {cn}.csr -CA {cn}.crt -CAkey {cn}.key -CAcreateserial -out {cn}-client.crt'.format(days=days, cn=cn)
     output3 = subprocess.call(cmd3, shell=True)
 
-def VerifyCrt:
+def VerifyCrt(cn):
     cmd4 = 'openssl verify -CAfile {cn}.crt {cn}-client.crt'.format(cn=cn)
     # output4 = subprocess.check_output(['bash','-c', cmd4])
     result = subprocess.Popen(cmd4, shell = True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
