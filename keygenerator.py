@@ -31,12 +31,12 @@ def verify_crt(cn):
     dummy,res=result.communicate()
     print (res)
 
-def pfx_to_crt(cn):
+def crt_to_pfx(cn):
     cmd5 = 'openssl pkcs12 -export -out {cn}.pfx -inkey {cn}.key -in {cn}.crt'.format(cn=cn)
     li = list(cmd5.split(" ")) 
     subprocess.run(li)
 
-def pfx_to_crtmore(cn, more):
+def crtmore_pfx_to(cn, more):
     cmd5 = 'openssl pkcs12 -export -out {cn}.pfx -inkey {cn}.key -in {cn}.crt certfile '.format(cn=cn) + more
     li = list(cmd5.split(" ")) 
     subprocess.run(li)
