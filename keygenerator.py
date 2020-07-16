@@ -36,6 +36,11 @@ def pfx_to_crt(cn):
     li = list(cmd5.split(" ")) 
     subprocess.run(li)
 
+def pfx_to_crtmore(cn, more):
+    cmd5 = 'openssl pkcs12 -export -out {cn}.pfx -inkey {cn}.key -in {cn}.crt certfile '.format(cn=cn) + more
+    li = list(cmd5.split(" ")) 
+    subprocess.run(li)
+
 def check_crt(cert):
     with open(cert, "r") as f:
         first = f.readline()
